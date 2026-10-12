@@ -62,10 +62,7 @@ pub mod consts {
     // as being completed. We default to 10000, which is a conservative threshold.
     pub const JTAG_DONE_CYCLES: u64 = 10000;
 
-    // FIXME: This should be refactored so that the ot_transport JSON5 file declares clock
-    // frequencies for each device which we can then query through the transport. This
-    // is hardcoded for now for convenience.
-    pub const CW340_MAIN_CLOCK_FREQ_HZ: u64 = 24 * 1000 * 1000; // 24 MHz
+    pub const CW340_MAIN_CLOCK_FREQ_HZ: u64 = get_clock_freq("cw340", "cpu");
 
     // Parameters - see hw/ip/bkdr_loader/doc/interfaces.md
     pub const DATA_REGS_PER_WORD: usize = 8; // MaxWordWidthDiv32
